@@ -428,9 +428,10 @@ aside small {
 
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 430px));
   gap: 90px 50px;
   width: 100%;
+  justify-content: space-between;
   align-items: start;
 }
 
@@ -438,30 +439,16 @@ aside small {
 .project-card {
   width: 100%;
   max-width: 430px;
-  justify-self: center;
-
+  min-width: 0;
   color: #f7f6f3;
   text-decoration: none;
   cursor: pointer;
-
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
-/* FORCE SAME POSITIONING */
 
-.project-card:nth-child(4) {
-  grid-column: 1;
-}
-
-.project-card:nth-child(5) {
-  grid-column: 2;
-}
-
-.project-card:nth-child(6) {
-  grid-column: 3;
-}
 
 .project-blob {
   width: 100%;
@@ -491,6 +478,7 @@ aside small {
   letter-spacing: -1px;
   font-weight: 500;
   margin-bottom: 16px;
+  max-width: 100%;
 }
 
 .project-card p:last-child {
