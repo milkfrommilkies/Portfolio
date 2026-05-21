@@ -222,3 +222,45 @@ abonmaTrigger.addEventListener("click", () => {
 closeAbonma.addEventListener("click", () => {
   abonmaOverlay.classList.remove("active");
 });
+
+/* PROJECT 6 — EXPERIMENTAL CAFE CGP */
+
+const cafeTrigger = document.querySelector(".cafe-trigger");
+const book3Overlay = document.querySelector(".book3-overlay");
+const closeBook3 = document.querySelector(".close-book3");
+const book3Container = document.getElementById("book3");
+
+let pageFlip3 = null;
+
+function createBook3() {
+  if (pageFlip3) return;
+
+  const cafePages = [];
+
+  for (let i = 1; i <= 20; i++) {
+    const number = String(i).padStart(2, "0");
+    cafePages.push(`AETHER/page_${number}.png`);
+  }
+
+  pageFlip3 = new St.PageFlip(book3Container, {
+    width: 640,
+    height: 452,
+    size: "fixed",
+    showCover: true,
+    usePortrait: false,
+    flippingTime: 900,
+    maxShadowOpacity: 0.5,
+    mobileScrollSupport: false
+  });
+
+  pageFlip3.loadFromImages(cafePages);
+}
+
+cafeTrigger.addEventListener("click", () => {
+  book3Overlay.classList.add("active");
+  createBook3();
+});
+
+closeBook3.addEventListener("click", () => {
+  book3Overlay.classList.remove("active");
+});

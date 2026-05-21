@@ -404,11 +404,12 @@ aside small {
   background: #c92500;
   color: #f7f6f3;
   padding: 120px 8vw;
+  overflow: hidden;
 }
 
 .projects-content {
   width: 100%;
-  max-width: 1400px;
+  max-width: 1500px;
   margin: 0 auto;
 }
 
@@ -428,66 +429,53 @@ aside small {
 .project-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 70px 42px;
+  gap: 90px 50px;
+  width: 100%;
   align-items: start;
 }
 
+
 .project-card {
+  width: 100%;
+  max-width: 430px;
+  justify-self: center;
+
   color: #f7f6f3;
   text-decoration: none;
   cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-/* 4 + 5 spodaj poravnana med 1-2 in 2-3 */
+/* FORCE SAME POSITIONING */
 
 .project-card:nth-child(4) {
-  grid-column: 1 / 2;
-  transform: translateX(52%);
+  grid-column: 1;
 }
 
 .project-card:nth-child(5) {
-  grid-column: 2 / 3;
-  transform: translateX(52%) 
+  grid-column: 2;
 }
 
-.posters-trigger,
-.editorial-trigger,
-.square-book-trigger,
-.gif-trigger {
-  cursor: pointer;
+.project-card:nth-child(6) {
+  grid-column: 3;
 }
-
-/* VSI BUBBLI ENAKE OBLIKE */
 
 .project-blob {
   width: 100%;
   aspect-ratio: 1 / 0.72;
-
   overflow: hidden;
   background: #f7f6f3;
   margin-bottom: 28px;
-
-  border-radius: 58% 42% 65% 35% / 38% 55% 45% 62%;
-
-  transform: translateZ(0);
-}
-
-/* isti liquid shape na vseh */
-
-.project-card:nth-child(1) .project-blob,
-.project-card:nth-child(2) .project-blob,
-.project-card:nth-child(3) .project-blob,
-.project-card:nth-child(4) .project-blob,
-.project-card:nth-child(5) .project-blob {
   border-radius: 58% 42% 65% 35% / 38% 55% 45% 62%;
 }
-
 
 .project-blob img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
 }
 
 .project-number {
@@ -1161,60 +1149,96 @@ aside small {
 /* BOOK OVERLAYS */
 
 .book-overlay,
-.book2-overlay {
+.book2-overlay,
+.book3-overlay {
   position: fixed;
   inset: 0;
+
   background: rgba(0, 0, 0, 0.94);
+
   z-index: 99999;
+
   display: flex;
   justify-content: center;
   align-items: center;
+
   opacity: 0;
   pointer-events: none;
+
   transition: opacity 0.5s ease;
+
   overflow: hidden;
 }
 
 .book-overlay.active,
-.book2-overlay.active {
+.book2-overlay.active,
+.book3-overlay.active {
   opacity: 1;
   pointer-events: all;
 }
 
+/* CLOSE BUTTONS */
+
 .close-book,
-.close-book2 {
+.close-book2,
+.close-book3 {
   position: fixed;
+
   top: 35px;
   right: 45px;
+
   background: none;
   border: none;
+
   color: white;
   font-size: 48px;
+
   cursor: pointer;
+
   z-index: 999999;
 }
 
+/* VIEWERS */
+
 .book-viewer,
-.book2-viewer {
+.book2-viewer,
+.book3-viewer {
   width: 100vw;
   height: 100vh;
+
   display: flex;
   flex-direction: column;
+
   justify-content: center;
   align-items: center;
+
   gap: 18px;
+
   overflow: hidden;
 }
+
+/* PROJECT 2 */
 
 #book {
   width: 1280px;
   height: 452px;
 }
 
+/* PROJECT 3 */
+
 #book2 {
   width: 900px;
   height: 450px;
 }
+
+/* PROJECT 6 */
+
+#book3 {
+  width: 1280px;
+  height: 452px;
+}
+
+/* PAGES */
 
 .page {
   background: white;
@@ -1224,15 +1248,19 @@ aside small {
 .page img {
   width: 100%;
   height: 100%;
+
   object-fit: cover;
+  display: block;
 }
 
 /* FLIP TEXT */
 
 .flip-text {
   color: white;
+
   font-family: Arial, sans-serif;
   font-size: 13px;
+
   letter-spacing: 2px;
   text-transform: uppercase;
 }
@@ -1246,7 +1274,6 @@ aside small {
 .stf__wrapper {
   background: transparent !important;
 }
-
 /* FADE */
 
 .reveal {
